@@ -27,6 +27,7 @@ const Header = () => {
         ].join(", "),
         backgroundRepeat: "no-repeat",
       }}
+      className="pb-10"
     >
       <Navbar />
       <Container className="">
