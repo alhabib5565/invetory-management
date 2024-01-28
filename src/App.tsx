@@ -1,4 +1,5 @@
 import Header from "./components/header/Header";
+import Services from "./components/serivces/Services";
 import ValuableClient from "./components/valuableClient/ValuableClient";
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <div>
       <Header />
       <ValuableClient />
+      <Services />
     </div>
   );
 };

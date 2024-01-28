@@ -76,6 +76,6 @@
     @apply bg-background font-roboto text-[18px];
   }
   h1 {
-    @apply text-[64px] font-extrabold leading-[110%];
+    @apply text-[40px] md:text-[64px] font-extrabold leading-[110%];
   }
 }

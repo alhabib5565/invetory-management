@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 const Hero = () => {
   return (
-    <div className="flex justify-between items-center gap-[97px]">
+    <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-[97px]">
       {/* test  */}
       <div className="w-ful max-w-[540px]">
         <h1 className="mb-[8px] text-[#000000]">
