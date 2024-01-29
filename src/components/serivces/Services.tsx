@@ -7,50 +7,53 @@ import serviceImg3 from "../../assets/service/card/serviceImg3.jpg";
 import listIcon from "../../assets/service/card/listIcon.png";
 import Container from "../layout/Container";
 import SectitonHeader from "../shared/SectitonHeader";
-
-const services = [
-  {
-    image: serviceImg1,
-    title: "Our Services",
-    description:
-      "Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem.",
-    list: [
-      "One day pas access all lecture",
-      "Lunch and Snack",
-      "Meet Event Speaker",
-      "Front Seat",
-      "One day pas access all lecture",
-    ],
-  },
-  {
-    image: serviceImg2,
-    title: "Organization event",
-    description:
-      "Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem.",
-    list: [
-      "One day pas access all lecture",
-      "Lunch and Snack",
-      "Meet Event Speaker",
-      "Front Seat",
-      "One day pas access all lecture",
-    ],
-  },
-  {
-    image: serviceImg3,
-    title: "Wedding event",
-    description:
-      "Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem.",
-    list: [
-      "One day pas access all lecture",
-      "Lunch and Snack",
-      "Meet Event Speaker",
-      "Front Seat",
-      "One day pas access all lecture",
-    ],
-  },
-];
+import { motion } from "framer-motion";
+import useScrolGrow from "@/hook/useScrollGrow";
 
 const Services = () => {
+  const services = [
+    {
+      image: serviceImg1,
+      title: "Our Services",
+      description:
+        "Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem.",
+      list: [
+        "One day pas access all lecture",
+        "Lunch and Snack",
+        "Meet Event Speaker",
+        "Front Seat",
+        "One day pas access all lecture",
+      ],
+    },
+    {
+      image: serviceImg2,
+      title: "Organization event",
+      description:
+        "Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem.",
+      list: [
+        "One day pas access all lecture",
+        "Lunch and Snack",
+        "Meet Event Speaker",
+        "Front Seat",
+        "One day pas access all lecture",
+      ],
+    },
+    {
+      image: serviceImg3,
+      title: "Wedding event",
+      description:
+        "Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem.",
+      list: [
+        "One day pas access all lecture",
+        "Lunch and Snack",
+        "Meet Event Speaker",
+        "Front Seat",
+        "One day pas access all lecture",
+      ],
+    },
+  ];
+
+  const { ref, scaleV } = useScrolGrow();
   return (
     <div
       style={{
@@ -60,14 +63,25 @@ const Services = () => {
       className="h-full bg-no-repeat bg-cover pb-10"
     >
       <Container>
-        <SectitonHeader
-          title="Our Services"
-          description="Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh
+        <motion.div
+          style={{
+            scale: scaleV,
+          }}
+          ref={ref}
+        >
+          <SectitonHeader
+            title="Our Services"
+            description="Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh
             ornare viverra. Ultrices faucibus neque velit risus ac id lorem."
-        />
+          />
+        </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-6">
           {services.map((serivce, index) => (
-            <div
+            <motion.div
+              style={{
+                scale: scaleV,
+              }}
+              ref={ref}
               key={index}
               className="max-w-[412px] p-6 w-full max-h-[570px] h-full bg-black bg-opacity-[5%] rounded-md space-y-6"
             >
@@ -89,7 +103,7 @@ const Services = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </Container>

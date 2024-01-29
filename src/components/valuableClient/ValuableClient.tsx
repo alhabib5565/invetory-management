@@ -9,28 +9,44 @@ import logo7 from "../../assets/companyLogo/logo(7).png";
 import logo8 from "../../assets/companyLogo/logo(8).png";
 import logo9 from "../../assets/companyLogo/logo(9).png";
 import logo10 from "../../assets/companyLogo/logo(10).png";
-const logoImages = [
-  logo1,
-  logo2,
-  logo3,
-  logo4,
-  logo5,
-  logo6,
-  logo7,
-  logo8,
-  logo9,
-  logo10,
-];
+
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
 const ValuableClient = () => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(ref, { once: true });
+
+  const logoImages = [
+    logo1,
+    logo2,
+    logo3,
+    logo4,
+    logo5,
+    logo6,
+    logo7,
+    logo8,
+    logo9,
+    logo10,
+  ];
   return (
-    <Container className="max-[1200px]">
-      <h1 className="text-center pt-[68px]">Our Valuable client</h1>
-      <div className="grid grid-cols-5 justify-between py-[84px] gap-x-5 md:gap-x-0 gap-y-[84px]">
-        {logoImages.map((image, index) => (
-          <img key={index} src={image} alt="" />
-        ))}
-      </div>
-    </Container>
+    <div
+      ref={ref}
+      style={{
+        transform: isInView ? "translateY(0px)" : "translateY(200px)",
+        transitionDuration: "500ms",
+        opacity: isInView ? 1 : 0,
+      }}
+    >
+      <Container className="max-[1200px]">
+        <h1 className="text-center pt-[68px]">Our Valuable client</h1>
+        <div className="grid grid-cols-3 lg:grid-cols-5 justify-between py-[84px] gap-x-5 md:gap-x-0 gap-y-[84px]">
+          {logoImages.map((image, index) => (
+            <img key={index} src={image} alt="" />
+          ))}
+        </div>
+      </Container>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import Container from "../layout/Container";
 import groupPhoto from "../../assets/gallery/group-photo.png";
 import checkBox from "../../assets/gallery/checkbox.png";
+import { motion } from "framer-motion";
 
 const Gallery = () => {
   const listItems = [
@@ -13,7 +14,14 @@ const Gallery = () => {
 
   return (
     <Container className="mt-20 flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-[120px]">
-      <div className="space-y-[35px] max-w-[522px]">
+      <motion.div
+        initial={{ x: 100, opacity: 0.5 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 0.3,
+        }}
+        className="space-y-[35px] max-w-[522px]"
+      >
         <h1>Gallery</h1>
         <p className="text-[18px] text-[#566B84]">
           Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh
@@ -32,11 +40,18 @@ const Gallery = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </motion.div>
 
-      <div className="max-w-[636px] max-h-[651px] w-full ">
+      <motion.div
+        initial={{ x: -100, opacity: 0.5 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 0.3,
+        }}
+        className="max-w-[636px] max-h-[651px] w-full "
+      >
         <img className="w-full h-full" src={groupPhoto} alt="" />
-      </div>
+      </motion.div>
     </Container>
   );
 };

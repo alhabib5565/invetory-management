@@ -1,10 +1,20 @@
 import Container from "../layout/Container";
 import Logo from "../shared/Logo";
-
+import { motion } from "framer-motion";
 const Navbar = () => {
   return (
     <Container>
-      <nav className="flex justify-between items-center py-6">
+      <motion.nav
+        initial={{ y: -200 }}
+        animate={{ y: 0 }}
+        transition={{
+          duration: 0.3,
+          // delay: 4,
+          type: "spring",
+          // stiffness: 100,
+        }}
+        className="flex justify-between items-center py-6"
+      >
         <Logo />
         <ul className="flex gap-4 items-center">
           <li>
@@ -32,7 +42,7 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-      </nav>
+      </motion.nav>
     </Container>
   );
 };

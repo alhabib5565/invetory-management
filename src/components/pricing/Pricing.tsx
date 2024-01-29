@@ -8,6 +8,8 @@ import checkBox from "../../assets/pricing/Check Box.png";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import useScrolGrow from "@/hook/useScrollGrow";
 
 const prices = [
   {
@@ -140,6 +142,8 @@ const prices = [
 ];
 
 const Pricing = () => {
+  const { ref, scaleV } = useScrolGrow();
+
   return (
     <div className="mt-20">
       <Container>
@@ -151,7 +155,9 @@ const Pricing = () => {
 
         <div className="flex flex-col lg:flex-row gap-5">
           {prices.map((price, index) => (
-            <div
+            <motion.div
+              ref={ref}
+              style={{ scale: scaleV }}
               key={index}
               className={`max-w-[412px] max-h-[748px] h-full w-full border-t-4 rounded-[20px]  border-[${price.color}] bg-gray-100 bg-opacity-50 mx-auto`}
             >
@@ -205,7 +211,7 @@ const Pricing = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </Container>

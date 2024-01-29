@@ -8,7 +8,8 @@ import eventImg4 from "../../assets/Event/eventImg4.png";
 import eventImg5 from "../../assets/Event/eventImg5.png";
 import eventImg6 from "../../assets/Event/eventImg6.png";
 import { cn } from "@/lib/utils";
-
+import useScrolGrow from "@/hook/useScrollGrow";
+import { motion } from "framer-motion";
 const events = [
   {
     image: eventImg1,
@@ -37,16 +38,21 @@ const events = [
 ];
 
 const Event = () => {
+  const { ref, scaleV } = useScrolGrow();
   return (
     <Container className="mt-20">
+      {/* <motion.div ref={ref} style={{ scale: scaleV }}> */}
       <SectitonHeader
         title="Event Items"
         description="Ut posuere felis arcu tellus tempus in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem."
       />
+      {/* </motion.div> */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 place-items-center lg:grid-rows-2 gap-5  lg:max-h-[576px] h-full ">
         {events.map((event, index) => (
-          <div
+          <motion.div
+            ref={ref}
+            style={{ scale: scaleV }}
             key={index}
             className={cn(
               " w-full max-w-[412px] h-[300px] lg:h-full lg:max-h-[576px] bg-[#8682B0] bg-opacity-15 p-6 space-y-3 rounded-md",
@@ -78,7 +84,7 @@ const Event = () => {
               alt=""
             />
             <h2 className="text-[23px] font-medium">{event.eventName}</h2>
-          </div>
+          </motion.div>
         ))}
       </div>
     </Container>
