@@ -44,7 +44,7 @@ const Event = () => {
         description="Ut posuere felis arcu tellus tempus in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem."
       />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-12 place-items-center lg:grid-rows-2 gap-5  max-h-[576px] h-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 place-items-center lg:grid-rows-2 gap-5  lg:max-h-[576px] h-full ">
         {events.map((event, index) => (
           <div
             key={index}

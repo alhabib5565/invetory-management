@@ -144,16 +144,16 @@ const Pricing = () => {
     <div className="mt-20">
       <Container>
         <SectitonHeader
-          className="max-w-[1086px] pb-[80px]"
+          className="max-w-[1086px] lg:pb-[80px]"
           title="Explore our pricing plans"
           description="Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem.Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem."
         />
 
-        <div className="flex gap-5">
+        <div className="flex flex-col lg:flex-row gap-5">
           {prices.map((price, index) => (
             <div
               key={index}
-              className={`max-w-[412px] max-h-[748px] h-full w-full border-t-4 rounded-[20px]  border-[${price.color}] bg-gray-100 bg-opacity-50 relative`}
+              className={`max-w-[412px] max-h-[748px] h-full w-full border-t-4 rounded-[20px]  border-[${price.color}] bg-gray-100 bg-opacity-50 mx-auto`}
             >
               {price.recommended && (
                 <p
