@@ -16,9 +16,9 @@ const RecentEvent = () => {
       style={{
         backgroundImage: `url("${bg}")`,
       }}
-      className="h-screen bg-no-repeat flex"
+      className="min-h-screen h-full bg-no-repeat flex mt-20 pb-10"
     >
-      <Container className="flex gap-[107px] items-center">
+      <Container className="flex flex-col-reverse lg:flex-row gap-14  lg:gap-[107px] items-center">
         <div className="grid grid-cols-3 gap-5">
           {images.map((image, index) => (
             <img

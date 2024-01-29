@@ -1,12 +1,11 @@
 import Container from "../layout/Container";
+import Logo from "../shared/Logo";
 
 const Navbar = () => {
   return (
     <Container>
       <nav className="flex justify-between items-center py-6">
-        <a href="" className="text-[32px] font-bold">
-          Event <span className="text-primary">360</span>
-        </a>
+        <Logo />
         <ul className="flex gap-4 items-center">
           <li>
             <a

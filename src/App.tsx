@@ -1,4 +1,5 @@
 import Event from "./components/event/Event";
+import Footer from "./components/footer/Footer";
 import Gallery from "./components/gallery/Gallery";
 import Header from "./components/header/Header";
 import Pricing from "./components/pricing/Pricing";
@@ -16,8 +17,9 @@ const App = () => {
       <Event />
       <Pricing />
       <Gallery />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <RecentEvent />
+      <Footer />
     </div>
   );
 };

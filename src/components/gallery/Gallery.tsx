@@ -12,7 +12,7 @@ const Gallery = () => {
   ];
 
   return (
-    <Container className="mt-20 flex flex-col-reverse lg:flex-row justify-between items-center gap-[120px]">
+    <Container className="mt-20 flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-[120px]">
       <div className="space-y-[35px] max-w-[522px]">
         <h1>Gallery</h1>
         <p className="text-[18px] text-[#566B84]">
@@ -34,7 +34,7 @@ const Gallery = () => {
         </ul>
       </div>
 
-      <div className="max-w-[636px] max-h-[651px] w-full">
+      <div className="max-w-[636px] max-h-[651px] w-full ">
         <img className="w-full h-full" src={groupPhoto} alt="" />
       </div>
     </Container>
