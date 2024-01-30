@@ -16,11 +16,11 @@ type TPrice = {
 };
 
 const PricingPlanCard = ({ price }: { price: TPrice }) => {
-  const { textRef, scaleV } = useScrolGrow();
+  const { ref, scaleV } = useScrolGrow();
 
   return (
     <motion.div
-      ref={textRef}
+      ref={ref}
       style={{ scale: scaleV }}
       className={`max-w-[412px] max-h-[748px] h-full w-full border-t-4 rounded-[20px]  border-[${price.color}] bg-gray-100 bg-opacity-50 mx-auto`}
     >

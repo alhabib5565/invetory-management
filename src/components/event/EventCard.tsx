@@ -11,11 +11,11 @@ type TEvent = {
 };
 
 const EventCard = ({ event, index }: TEvent) => {
-  const { textRef, scaleV } = useScrolGrow();
+  const { ref, scaleV } = useScrolGrow();
 
   return (
     <motion.div
-      ref={textRef}
+      ref={ref}
       style={{ scaleX: scaleV }}
       key={index}
       className={cn(

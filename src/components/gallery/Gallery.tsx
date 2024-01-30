@@ -21,7 +21,7 @@ const Gallery = () => {
   const imgIsInView = useInView(imgRef);
 
   return (
-    <Container className="mt-20 flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-[120px]">
+    <Container className="mt-20 flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-[120px] overflow-hidden">
       <motion.div
         ref={textRef}
         initial={!textIsInView ? { x: 100, opacity: 0.5 } : ""}

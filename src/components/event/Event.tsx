@@ -40,11 +40,11 @@ const events = [
 ];
 
 const Event = () => {
-  const { textRef, scaleV } = useScrolGrow();
+  const { ref, scaleV } = useScrolGrow();
   return (
-    <Container className="mt-20">
+    <Container className="mt-20 overflow-hidden">
       {/* <motion.div ref={ref} style={{ scale: scaleV }}> */}
-      <motion.div ref={textRef} style={{ scale: scaleV }}>
+      <motion.div ref={ref} style={{ scale: scaleV }}>
         <SectitonHeader
           title="Event Items"
           description="Ut posuere felis arcu tellus tempus in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem."
