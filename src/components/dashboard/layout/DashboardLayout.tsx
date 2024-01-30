@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
 
 const DashboardLayout = () => {
@@ -6,9 +7,8 @@ const DashboardLayout = () => {
       {/* sidebar */}
       <Sidebar />
 
-      <div className=" w-full min-h-screen h-full text-center">
-        {" "}
-        this is dashboard{" "}
+      <div className=" w-full min-h-screen h-full text-center lg:ml-[300px]">
+        <Outlet />
       </div>
     </div>
   );

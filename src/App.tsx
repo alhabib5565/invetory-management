@@ -5,7 +5,7 @@ import Header from "./components/header/Header";
 import Pricing from "./components/pricing/Pricing";
 import RecentEvent from "./components/recentEvent/RecentEvent";
 import Services from "./components/serivces/Services";
-// import Testimonial from "./components/testimonial/Testimonial";
+import Testimonial from "./components/testimonial/Testimonial";
 import ValuableClient from "./components/valuableClient/ValuableClient";
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
       <Event />
       <Pricing />
       <Gallery />
-      {/* <Testimonial /> */}
+      <Testimonial />
       <RecentEvent />
       <Footer />
     </div>

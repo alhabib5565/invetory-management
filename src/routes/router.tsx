@@ -1,6 +1,8 @@
 import App from "@/App";
 import DashboardLayout from "@/components/dashboard/layout/DashboardLayout";
-import { createBrowserRouter } from "react-router-dom";
+import ManageEvent from "@/components/dashboard/manageEvent/ManageEvent";
+import ManageService from "@/components/dashboard/manageService/ManageService";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -9,6 +11,28 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="/dashboard/home" />,
+      },
+      {
+        path: "home",
+        element: <div>dashboard home</div>,
+      },
+      {
+        path: "recent-event",
+        element: <div>this is recent event </div>,
+      },
+      {
+        path: "event",
+        element: <ManageEvent />,
+      },
+      {
+        path: "service",
+        element: <ManageService />,
+      },
+    ],
   },
 ]);
 

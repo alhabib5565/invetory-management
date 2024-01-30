@@ -7,12 +7,23 @@ const Sidebar = () => {
   const [menuOpen, setMenuOpen] = useState(true);
 
   const menuItems = [
-    "item 1",
-    "item 2",
-    "item 3",
-    "item 4",
-    "item 5",
-    "item 6",
+    {
+      linkName: "Dashboard",
+      link: "home",
+    },
+    {
+      linkName: "Event",
+      link: "event",
+    },
+    {
+      linkName: "Service",
+      link: "service",
+    },
+
+    {
+      linkName: "Recent Event",
+      link: "recent-event",
+    },
   ];
 
   const item = {
@@ -73,9 +84,16 @@ const Sidebar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             className="bg-[#F1F5F9] px-4 py-2 rounded-md text-center"
+            key={index}
           >
-            <NavLink className={"w-full block"} key={index} to="">
-              {menuItem}
+            <NavLink
+              className={({ isActive }) =>
+                cn("w-full block", { "text-[#5A01CB]": isActive })
+              }
+              key={index}
+              to={menuItem.link}
+            >
+              {menuItem.linkName}
             </NavLink>
           </motion.li>
         ))}

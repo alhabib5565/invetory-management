@@ -29,7 +29,7 @@ const Testimonial = () => {
   return (
     <Container className="mt-20">
       <h1>What Our Client Said about us</h1>
-      <div className="flex gap-5 mt-14">
+      <div className="flex flex-col lg:flex-row gap-5 mt-14">
         {reviews.map((review, index) => (
           <div
             className="max-w-[513px] w-full max-h-[312px] rounded-[30px] p-10 bg-[#F8F9FF] hover:bg-[#3461FF] hover:text-white transition-all space-y-5"
