@@ -29,18 +29,18 @@ const ValuableClient = () => {
     logo9,
     logo10,
   ];
+
+  const transitionStyle = {
+    transform: isInView ? "translateY(0px)" : "translateY(200px)",
+    transitionDuration: "500ms",
+    opacity: isInView ? 1 : 0,
+  };
+
   return (
-    <div
-      ref={ref}
-      style={{
-        transform: isInView ? "translateY(0px)" : "translateY(200px)",
-        transitionDuration: "500ms",
-        opacity: isInView ? 1 : 0,
-      }}
-    >
+    <div ref={ref} style={transitionStyle}>
       <Container className="max-[1200px]">
         <h1 className="text-center pt-[68px]">Our Valuable client</h1>
-        <div className="grid grid-cols-3 lg:grid-cols-5 justify-between py-[84px] gap-x-5 md:gap-x-0 gap-y-[84px]">
+        <div className="grid grid-cols-3 lg:grid-cols-5 justify-between py-12 lg:py-[84px] gap-x-5 md:gap-x-0  gap-y-12 lg:gap-y-[84px]">
           {logoImages.map((image, index) => (
             <img key={index} src={image} alt="" />
           ))}

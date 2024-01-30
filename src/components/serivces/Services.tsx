@@ -53,7 +53,7 @@ const Services = () => {
     },
   ];
 
-  const { ref, scaleV } = useScrolGrow();
+  const { textRef: ref, scaleV } = useScrolGrow();
   return (
     <div
       style={{

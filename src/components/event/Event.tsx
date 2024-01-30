@@ -7,9 +7,11 @@ import eventImg3 from "../../assets/Event/eventImg3.png";
 import eventImg4 from "../../assets/Event/eventImg4.png";
 import eventImg5 from "../../assets/Event/eventImg5.png";
 import eventImg6 from "../../assets/Event/eventImg6.png";
-import { cn } from "@/lib/utils";
-import useScrolGrow from "@/hook/useScrollGrow";
+
+import EventCard from "./EventCard";
+
 import { motion } from "framer-motion";
+import useScrolGrow from "@/hook/useScrollGrow";
 const events = [
   {
     image: eventImg1,
@@ -38,53 +40,21 @@ const events = [
 ];
 
 const Event = () => {
-  const { ref, scaleV } = useScrolGrow();
+  const { textRef, scaleV } = useScrolGrow();
   return (
     <Container className="mt-20">
       {/* <motion.div ref={ref} style={{ scale: scaleV }}> */}
-      <SectitonHeader
-        title="Event Items"
-        description="Ut posuere felis arcu tellus tempus in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem."
-      />
+      <motion.div ref={textRef} style={{ scale: scaleV }}>
+        <SectitonHeader
+          title="Event Items"
+          description="Ut posuere felis arcu tellus tempus in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem."
+        />
+      </motion.div>
       {/* </motion.div> */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 place-items-center lg:grid-rows-2 gap-5  lg:max-h-[576px] h-full ">
         {events.map((event, index) => (
-          <motion.div
-            ref={ref}
-            style={{ scale: scaleV }}
-            key={index}
-            className={cn(
-              " w-full max-w-[412px] h-[300px] lg:h-full lg:max-h-[576px] bg-[#8682B0] bg-opacity-15 p-6 space-y-3 rounded-md",
-              {
-                " lg:col-span-4": index === 0,
-              },
-              {
-                "lg:col-span-4": index === 1,
-              },
-              {
-                "lg:col-span-4 lg:row-span-2": index === 2,
-              },
-              {
-                "lg:col-span-2": index === 3,
-              },
-              {
-                "lg:col-span-2": index === 4,
-              },
-              {
-                "lg:col-span-4": index === 5,
-              }
-            )}
-          >
-            <img
-              src={event.image}
-              className={cn("bg-cover w-full h-[85%]", {
-                "h-[92.5%]": index === 2,
-              })}
-              alt=""
-            />
-            <h2 className="text-[23px] font-medium">{event.eventName}</h2>
-          </motion.div>
+          <EventCard index={index} event={event} key={index} />
         ))}
       </div>
     </Container>

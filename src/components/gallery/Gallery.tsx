@@ -1,7 +1,8 @@
 import Container from "../layout/Container";
 import groupPhoto from "../../assets/gallery/group-photo.png";
 import checkBox from "../../assets/gallery/checkbox.png";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const Gallery = () => {
   const listItems = [
@@ -12,13 +13,21 @@ const Gallery = () => {
     "One day pas access all lecture",
   ];
 
+  const motionDuration = 0.3;
+
+  const textRef = useRef<HTMLDivElement>(null);
+  const textIsInView = useInView(textRef);
+  const imgRef = useRef<HTMLDivElement>(null);
+  const imgIsInView = useInView(imgRef);
+
   return (
     <Container className="mt-20 flex flex-col lg:flex-row justify-between items-center gap-16 lg:gap-[120px]">
       <motion.div
-        initial={{ x: 100, opacity: 0.5 }}
-        animate={{ x: 0, opacity: 1 }}
+        ref={textRef}
+        initial={!textIsInView ? { x: 100, opacity: 0.5 } : ""}
+        animate={textIsInView ? { x: 0, opacity: 1 } : ""}
         transition={{
-          duration: 0.3,
+          duration: motionDuration,
         }}
         className="space-y-[35px] max-w-[522px]"
       >
@@ -43,10 +52,11 @@ const Gallery = () => {
       </motion.div>
 
       <motion.div
-        initial={{ x: -100, opacity: 0.5 }}
-        animate={{ x: 0, opacity: 1 }}
+        ref={imgRef}
+        initial={!imgIsInView ? { x: -100, opacity: 0.5 } : ""}
+        animate={imgIsInView ? { x: 0, opacity: 1 } : ""}
         transition={{
-          duration: 0.3,
+          duration: motionDuration,
         }}
         className="max-w-[636px] max-h-[651px] w-full "
       >
