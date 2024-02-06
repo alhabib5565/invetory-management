@@ -4,6 +4,7 @@ import Logo from "../shared/Logo";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { MenuIcon, X } from "lucide-react";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
@@ -27,6 +28,14 @@ const Navbar = () => {
             >
               Home
             </a>
+          </li>
+          <li>
+            <Link
+              to="/dashboard/service"
+              className="px-2 py-3 tracking-[0.5px] text-[16px] font-medium leading-[24px]"
+            >
+              Dashboard
+            </Link>
           </li>
           <li>
             <a
@@ -84,6 +93,12 @@ const Navbar = () => {
           >
             Contact
           </a>
+          <Link
+            to="/dashboard/service"
+            className="px-2 py-3 tracking-[0.5px] text-[16px] font-medium leading-[24px] w-full text-center hover:bg-[#F1F5F9]"
+          >
+            Dashboard
+          </Link>
         </ul>
       </motion.nav>
     </Container>

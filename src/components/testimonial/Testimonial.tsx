@@ -2,6 +2,9 @@ import Container from "../layout/Container";
 import author1 from "../../assets/testimonial/author1.png";
 import author2 from "../../assets/testimonial/author2.png";
 import author3 from "../../assets/testimonial/author3.png";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import TestimonialCard from "./TestimonialCard";
 const Testimonial = () => {
   const reviews = [
     {
@@ -25,31 +28,61 @@ const Testimonial = () => {
       review:
         "Embrace really nails it! Creative brilliance, approachable style. They're the partners you want—artistry meets strategy. Thrilled with what they achieved!",
     },
+    {
+      authorImage: author3,
+      authorName: "Jacob Joshua",
+      designation: "Chief Manager",
+      review:
+        "Embrace really nails it! Creative brilliance, approachable style. They're the partners you want—artistry meets strategy. Thrilled with what they achieved!",
+    },
+    {
+      authorImage: author3,
+      authorName: "Jacob Joshua",
+      designation: "Chief Manager",
+      review:
+        "Embrace really nails it! Creative brilliance, approachable style. They're the partners you want—artistry meets strategy. Thrilled with what they achieved!",
+    },
+    {
+      authorImage: author3,
+      authorName: "Jacob Joshua",
+      designation: "Chief Manager",
+      review:
+        "Embrace really nails it! Creative brilliance, approachable style. They're the partners you want—artistry meets strategy. Thrilled with what they achieved!",
+    },
   ];
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+
   return (
     <Container className="mt-20">
       <h1>What Our Client Said about us</h1>
-      <div className="flex flex-col lg:flex-row gap-5 mt-14">
+
+      <Carousel
+        draggable={true}
+        swipeable={true}
+        responsive={responsive}
+        // transitionDuration={300}
+        autoPlay={true}
+        autoPlaySpeed={3000}
+        className=" mt-14"
+      >
         {reviews.map((review, index) => (
-          <div
-            className="max-w-[513px] w-full max-h-[312px] rounded-[30px] p-10 bg-[#F8F9FF] hover:bg-[#3461FF] hover:text-white transition-all space-y-5"
-            key={index}
-          >
-            <div className="flex gap-4 items-center">
-              <img
-                className="w-[85px] h-[85px] bg-contain"
-                src={review.authorImage}
-                alt=""
-              />
-              <div>
-                <h4 className="text-[28px] font-medium">{review.authorName}</h4>
-                <p className="text-[20px]">{review.designation}</p>
-              </div>
-            </div>
-            <p className="text-[16px]">{review.review}</p>
-          </div>
+          <TestimonialCard review={review} key={index} />
         ))}
-      </div>
+      </Carousel>
     </Container>
   );
 };
