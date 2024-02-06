@@ -47,6 +47,7 @@ const UpdateService = ({ isOpen, setIsOpen, id }: TUpdateService) => {
         image: imageUrl,
         list: serviceNames,
       };
+      console.log(serviceData);
       await mutateAsync(serviceData);
       Swal.fire({
         title: "Good job!",

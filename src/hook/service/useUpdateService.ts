@@ -6,7 +6,7 @@ const useUpdateService = (id: string) => {
     const queryClient = useQueryClient();
     const data = useMutation({
         mutationFn: (serviceData: TService) =>
-            axios.patch(`${import.meta.env.VITE_SERVER_URL}/${id}`, serviceData),
+            axios.patch(`${import.meta.env.VITE_SERVER_URL}/service/${id}`, serviceData),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["service"] });
         },

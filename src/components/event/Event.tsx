@@ -10,8 +10,10 @@ import eventImg6 from "../../assets/Event/eventImg6.png";
 
 import EventCard from "./EventCard";
 
-import { motion } from "framer-motion";
-import useScrolGrow from "@/hook/useScrollGrow";
+// import { motion } from "framer-motion";
+// import useScrolGrow from "@/hook/useScrollGrow";
+import { useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
 const events = [
   {
     image: eventImg1,
@@ -40,19 +42,28 @@ const events = [
 ];
 
 const Event = () => {
-  const { ref, scaleV } = useScrolGrow();
+  const location = useLocation();
+  console.log(location.pathname);
+  const pathName = location.pathname === "/dashboard/event";
+
   return (
-    <Container className="mt-20 overflow-hidden">
+    <Container
+      className={cn("mt-20 overflow-hidden ", { "mt-0 px-0": pathName })}
+    >
       {/* <motion.div ref={ref} style={{ scale: scaleV }}> */}
-      <motion.div ref={ref} style={{ scale: scaleV }}>
+      {pathName || (
         <SectitonHeader
           title="Event Items"
           description="Ut posuere felis arcu tellus tempus in ultricies. Gravida id nibh ornare viverra. Ultrices faucibus neque velit risus ac id lorem."
         />
-      </motion.div>
+      )}
       {/* </motion.div> */}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 place-items-center lg:grid-rows-2 gap-5  lg:max-h-[576px] h-full ">
+      <div
+        className={cn(
+          "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 place-items-center lg:grid-rows-2 gap-5  lg:max-h-[576px] h-full "
+        )}
+      >
         {events.map((event, index) => (
           <EventCard index={index} event={event} key={index} />
         ))}

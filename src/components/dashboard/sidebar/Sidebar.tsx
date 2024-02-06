@@ -19,10 +19,13 @@ const Sidebar = () => {
       linkName: "Service",
       link: "service",
     },
-
     {
       linkName: "Recent Event",
       link: "recent-event",
+    },
+    {
+      linkName: "home",
+      link: "/",
     },
   ];
 
@@ -45,7 +48,7 @@ const Sidebar = () => {
     show: {
       opacity: 1,
       transition: {
-        delayChildren: 0.5,
+        delayChildren: 0.3,
         staggerChildren: 0.3,
       },
     },
@@ -60,7 +63,7 @@ const Sidebar = () => {
           : { clipPath: "circle(30px at 40px 40px)" }
       }
       transition={{
-        duration: 1,
+        duration: 0.5,
         type: "spring",
       }}
       className={cn(

@@ -3,12 +3,11 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
-// import AddImage from "@/components/shared/AddImage";
 import GetServiceName from "./GetServiceName";
-import { TServiceData, TServiceName } from "../type";
+import { TServiceName } from "../type";
 import AddImage from "@/components/shared/AddImage";
+import Swal from "sweetalert2";
+import useAddService from "@/hook/service/useAddService";
 const ManageService = () => {
   //state
   const [serviceNames, setServiceNames] = useState<TServiceName[]>([]);
@@ -17,35 +16,40 @@ const ManageService = () => {
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const queryClient = useQueryClient();
-  const { mutateAsync, data } = useMutation({
-    mutationFn: (data: TServiceData) =>
-      axios.post("https://assignment-5-server-lake.vercel.app/service", data),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["service"] });
-    },
-  });
+  const { mutateAsync } = useAddService();
 
   const handleAddService = () => {
-    if (imageUrl && title && description && serviceNames.length > 0) {
-      setLoading(true);
-      const serviceData = {
-        image: imageUrl,
-        list: serviceNames,
-        title,
-        description,
-      };
-      mutateAsync(serviceData);
-      setDescription("");
-      setTitle("");
-      setImageUrl("");
-      setServiceNames([]);
-      setLoading(false);
-      console.log(serviceData);
-      console.log(data);
-    } else {
-      setLoading(false);
-      alert("please all fillup the form");
+    try {
+      if (imageUrl && title && description && serviceNames.length > 0) {
+        setLoading(true);
+        const serviceData = {
+          image: imageUrl,
+          list: serviceNames,
+          title,
+          description,
+        };
+        mutateAsync(serviceData);
+        setDescription("");
+        setTitle("");
+        setImageUrl("");
+        setServiceNames([]);
+        setLoading(false);
+        Swal.fire({
+          title: "Good job!",
+          text: "service added successfull",
+          icon: "success",
+        });
+      } else {
+        setLoading(false);
+        alert("please all fillup the form");
+      }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      Swal.fire({
+        title: "try again",
+        text: `${error.message}` || "Service add failed",
+        icon: "error",
+      });
     }
   };
 
