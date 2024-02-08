@@ -11,7 +11,7 @@ const DashboardLayout = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
-        className=" w-full min-h-screen h-full text-center lg:ml-[300px]"
+        className=" w-full min-h-screen h-full lg:ml-[300px] p-4"
       >
         <Outlet />
       </motion.div>

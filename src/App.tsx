@@ -10,7 +10,7 @@ import ValuableClient from "./components/valuableClient/ValuableClient";
 
 const App = () => {
   return (
-    <div>
+    <div className="relative">
       <Header />
       <ValuableClient />
       <Services />

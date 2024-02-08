@@ -1,4 +1,5 @@
 import App from "@/App";
+import DashboardHome from "@/components/dashboard/dashboardHome/DashboardHome";
 import DashboardLayout from "@/components/dashboard/layout/DashboardLayout";
 import ManageEvent from "@/components/dashboard/manageEvent/ManageEvent";
 import ManageService from "@/components/dashboard/manageService/ManageService";
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: "home",
-        element: <div>dashboard home</div>,
+        element: <DashboardHome />,
       },
       {
         path: "recent-event",

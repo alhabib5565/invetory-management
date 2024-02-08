@@ -37,7 +37,7 @@ const AddImage = ({ imageUrl, setImageUrl }: TAddImage) => {
         className={cn(
           "rounded-lg flex flex-col items-center justify-center w-full h-[200px] border-2 border-gray-300 border-dashed cursor-pointer bg-gray-100 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600",
           {
-            "opacity-50": loading,
+            "opacity-50 cursor-not-allowed": loading,
           }
         )}
       >

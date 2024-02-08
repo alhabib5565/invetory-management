@@ -16,14 +16,14 @@ const ServiceCard = ({ service }: { service: TService }) => {
       ref={ref}
       className="max-w-[412px] w-full max-h-[570px] h-full bg-black bg-opacity-[5%] rounded-md relative group overflow-hidden"
     >
-      <div className="space-y-6 p-6 group-hover:opacity-0 opacity-100">
+      <div className="space-y-6 p-6 group-hover:opacity-0 opacity-100 transition-all">
         <img
           src={service.image}
           className="h-[253px] w-full bg-contain rounded-md"
           alt=""
         />
         <div className="space-y-3">
-          <h3 className="text-[32px] font-extrabold leading-[110%] tracking-[0.05em]">
+          <h3 className="text-[32px] text-left font-extrabold leading-[110%] tracking-[0.05em]">
             {service.title}
           </h3>
           <ul className="space-y-3">
@@ -36,7 +36,7 @@ const ServiceCard = ({ service }: { service: TService }) => {
           </ul>
         </div>
       </div>
-      <div className="bg-black bg-opacity-[10%] absolute inset-0 p-6 grid grid-cols-1 justify-between translate-x-[100%] transition-all group-hover:translate-x-0 group-hover:opacity-100 opacity-0">
+      <div className="bg-black bg-opacity-[10%] absolute inset-0 p-6 grid grid-cols-1 justify-between translate-x-[100%] transition-all group-hover:translate-x-0 group-hover:opacity-100 opacity-0 text-left">
         <h3 className="text-[32px] font-extrabold leading-[110%] tracking-[0.05em]">
           {service.title}
         </h3>

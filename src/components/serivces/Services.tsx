@@ -6,19 +6,11 @@ import SectitonHeader from "../shared/SectitonHeader";
 import { motion } from "framer-motion";
 import useScrolGrow from "@/hook/useScrollGrow";
 import ServiceCard from "./ServiceCard";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { TService } from "./type";
+import useGetAllService from "@/hook/service/useGetAllService";
 
 const Services = () => {
-  const {
-    data: services,
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: ["service"],
-    queryFn: () => axios("https://assignment-5-server-lake.vercel.app/service"),
-  });
+  const { data: services, isLoading, isError } = useGetAllService();
 
   const { ref, scaleV } = useScrolGrow();
 

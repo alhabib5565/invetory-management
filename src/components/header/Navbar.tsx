@@ -31,7 +31,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/dashboard/service"
+              to="/dashboard/home"
               className="px-2 py-3 tracking-[0.5px] text-[16px] font-medium leading-[24px]"
             >
               Dashboard
@@ -94,7 +94,7 @@ const Navbar = () => {
             Contact
           </a>
           <Link
-            to="/dashboard/service"
+            to="/dashboard/home"
             className="px-2 py-3 tracking-[0.5px] text-[16px] font-medium leading-[24px] w-full text-center hover:bg-[#F1F5F9]"
           >
             Dashboard
