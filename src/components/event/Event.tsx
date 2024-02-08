@@ -1,51 +1,19 @@
 import Container from "../layout/Container";
 import SectitonHeader from "../shared/SectitonHeader";
-
-import eventImg1 from "../../assets/Event/eventImg1.png";
-import eventImg2 from "../../assets/Event/eventImg2.png";
-import eventImg3 from "../../assets/Event/eventImg3.png";
-import eventImg4 from "../../assets/Event/eventImg4.png";
-import eventImg5 from "../../assets/Event/eventImg5.png";
-import eventImg6 from "../../assets/Event/eventImg6.png";
-
 import EventCard from "./EventCard";
-
-// import { motion } from "framer-motion";
-// import useScrolGrow from "@/hook/useScrollGrow";
 import { useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-const events = [
-  {
-    image: eventImg1,
-    eventName: "Event item - 1",
-  },
-  {
-    image: eventImg2,
-    eventName: "Event item - 2",
-  },
-  {
-    image: eventImg3,
-    eventName: "Event item - 3",
-  },
-  {
-    image: eventImg4,
-    eventName: "Event item - 4",
-  },
-  {
-    image: eventImg5,
-    eventName: "Event item - 5",
-  },
-  {
-    image: eventImg6,
-    eventName: "Event item - 6",
-  },
-];
+import useGetAllEvent from "@/hook/event/useGetAllEvent";
+import { TEventData } from "../dashboard/manageEvent/type";
 
 const Event = () => {
   const location = useLocation();
-  console.log(location.pathname);
   const pathName = location.pathname === "/dashboard/event";
-
+  const { data: events, isLoading } = useGetAllEvent();
+  if (isLoading) {
+    <p>loading...</p>;
+  }
+  // console.log("pathname", pathName);
   return (
     <Container
       className={cn("mt-20 overflow-hidden ", { "mt-0 px-0": pathName })}
@@ -64,8 +32,13 @@ const Event = () => {
           "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 place-items-center lg:grid-rows-2 gap-5  lg:max-h-[576px] h-full "
         )}
       >
-        {events.map((event, index) => (
-          <EventCard index={index} event={event} key={index} />
+        {events?.data.data.slice(-6).map((event: TEventData, index: number) => (
+          <EventCard
+            index={index}
+            {...event}
+            key={event._id}
+            pathName={pathName}
+          />
         ))}
       </div>
     </Container>
