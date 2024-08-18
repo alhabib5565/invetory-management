@@ -15,19 +15,22 @@ const AddImage = ({ imageUrl, setImageUrl }: TAddImage) => {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setImage(e.target.files ? e.target.files[0] : null);
   };
-
   useEffect(() => {
-    const handleGetImageUrl = async () => {
-      if (image) {
-        setLoading(true);
-        const data = await imageUpload(image);
-        console.log(data);
-        setImageUrl(data.display_url);
-        setImage(null);
-        setLoading(false);
-      }
-    };
-    handleGetImageUrl();
+    try {
+      const handleGetImageUrl = async () => {
+        if (image) {
+          setLoading(true);
+          const data = await imageUpload(image);
+          console.log(data);
+          setImageUrl(data.display_url);
+          setImage(null);
+          setLoading(false);
+        }
+      };
+      handleGetImageUrl();
+    } catch (error) {
+      setLoading(false);
+    }
   }, [image, setImageUrl]);
 
   return (

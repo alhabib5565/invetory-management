@@ -10,7 +10,6 @@ import Swal from "sweetalert2";
 const AdminServiceCard = ({ service }: { service: TAdminServiceCard }) => {
   const [id, setId] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-
   const { data, mutate } = useDeleteService();
 
   const handleDelete = (id: string) => {
@@ -41,10 +40,14 @@ const AdminServiceCard = ({ service }: { service: TAdminServiceCard }) => {
   };
 
   return (
-    <div className="w-full border p-4 rounded-xl flex flex-col lg:flex-row gap-4  bg-[#5A01CB/5">
+    <div className="w-full border p-4 rounded-xl flex flex-col lg:flex-row gap-4 lg:items-center  bg-[#5A01CB/5">
       {/* image  */}
-      <div className="w-full lg:w-[40%]">
-        <img className="w-full h-full rounded-xl" src={service.image} alt="" />
+      <div className="w-full h-full lg:w-[40%]">
+        <img
+          className="w-full h-full max-h-[400px] rounded-xl"
+          src={service.image}
+          alt=""
+        />
       </div>
 
       {/* text */}

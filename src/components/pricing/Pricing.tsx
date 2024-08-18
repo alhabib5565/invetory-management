@@ -142,7 +142,7 @@ const prices = [
 const Pricing = () => {
   const { ref, scaleV } = useScrolGrow();
   return (
-    <div className="mt-20">
+    <div id="pricing" className="mt-20">
       <Container>
         <motion.div ref={ref} style={{ scale: scaleV }}>
           <SectitonHeader

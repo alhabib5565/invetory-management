@@ -7,10 +7,11 @@ import RecentEvent from "./components/recentEvent/RecentEvent";
 import Services from "./components/serivces/Services";
 import Testimonial from "./components/testimonial/Testimonial";
 import ValuableClient from "./components/valuableClient/ValuableClient";
+import ScrollToTop from "react-scroll-to-top";
 
 const App = () => {
   return (
-    <div className="relative">
+    <div className="">
       <Header />
       <ValuableClient />
       <Services />
@@ -20,6 +21,13 @@ const App = () => {
       <Testimonial />
       <RecentEvent />
       <Footer />
+      <ScrollToTop
+        style={{ display: "grid", placeItems: "center" }}
+        smooth
+        top={500}
+        color="blue"
+      />
+      {/* <MoveToTopButton /> */}
     </div>
   );
 };

@@ -11,6 +11,7 @@ import HeroCards from "./HeroCards";
 const Header = () => {
   return (
     <div
+      id="home"
       style={{
         backgroundImage: [
           `url("${orange}")`,
@@ -30,7 +31,7 @@ const Header = () => {
       className="pb-10"
     >
       <Navbar />
-      <Container className="">
+      <Container className="pt-32">
         <Hero />
         <HeroCards />
       </Container>

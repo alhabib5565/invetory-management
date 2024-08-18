@@ -67,7 +67,7 @@ const Sidebar = () => {
         type: "spring",
       }}
       className={cn(
-        "max-w-[300px] w-full h-screen fixed top-0  left-0 translate-x-[0] bg-[#5A01CB] p-6"
+        "max-w-[300px] w-full h-screen fixed top-0 z-50 left-0 translate-x-[0] bg-[#5A01CB] p-6"
         //   { "translate-x-0": menuOpen }
       )}
     >

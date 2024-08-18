@@ -14,7 +14,7 @@ const DashboardHome = () => {
   const { data: events } = useGetAllEvent();
 
   return (
-    <div className="w-full">
+    <div className="w-full z-0">
       <div className="mt-10 space-y-5">
         <h3 className="text-[32px] font-extrabold leading-[110%] tracking-[0.05em]">
           Services
@@ -27,7 +27,7 @@ const DashboardHome = () => {
             ))}
           <NavLink
             to={"/dashboard/service"}
-            className="w-full h-full border grid place-items-center"
+            className="w-full h-full min-h-[200px] border grid place-items-center"
           >
             <Button
               variant={"outline"}
@@ -44,7 +44,11 @@ const DashboardHome = () => {
         <h3 className="text-[32px] font-extrabold leading-[110%] tracking-[0.05em]">
           Events
         </h3>
-        <div className={cn("flex items-center gap-5 ")}>
+        <div
+          className={cn(
+            "grid grid-cols-1 lg:grid-cols-3 place-items-center gap-6"
+          )}
+        >
           {events?.data.data.slice(0, 2).map((event: TEventData) => (
             <div
               key={event._id}

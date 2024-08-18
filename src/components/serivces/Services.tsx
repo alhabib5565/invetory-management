@@ -19,6 +19,7 @@ const Services = () => {
   }
   return (
     <div
+      id="service"
       style={{
         backgroundImage: [`url("${orange}")`, `url("${yellow}")`].join(", "),
         backgroundPosition: ["right top", "left top"].join(", "),
@@ -40,7 +41,7 @@ const Services = () => {
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-6">
           {services?.data.data
-            .slice(0, 3)
+            .slice(-3)
             .map((serivce: TService, index: number) => (
               <ServiceCard service={serivce} key={index} />
             ))}
