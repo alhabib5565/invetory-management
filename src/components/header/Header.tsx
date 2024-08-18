@@ -31,7 +31,7 @@ const Header = () => {
       className="pb-10"
     >
       <Navbar />
-      <Container className="pt-32">
+      <Container className="pt-28">
         <Hero />
         <HeroCards />
       </Container>
